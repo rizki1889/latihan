@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>django</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <h1>index.html</h1>
+    <p>background</p>
+    <img
+      src="{% static 'images/background.png' %}"
+      alt="background"
+      width="100"
+    />
+    <h2>acces record</h2>
+    <div class="django2">
+      {%if acces_record %}
+      <table>
+        <thead>
+          <th>side name</th>
+          <th>date acces</th>
+        </thead>
+        {% for acc in acces_record %}
+        <tr>
+          <td>{{acc.name}}</td>
+          <td>{{acc.date}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>no acces record</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
